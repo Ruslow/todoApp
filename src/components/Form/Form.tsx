@@ -9,8 +9,6 @@ const Form = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(value);
     if (value) {
       dispatch({ type: "addNewTodo", payload: value });
       setError("");
