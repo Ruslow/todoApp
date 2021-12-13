@@ -4,17 +4,25 @@ import FormStyles from "./Form.styles";
 
 const Form = () => {
   const [value, setValue] = useState("");
-
+  const [error, setError] = useState("");
   const { dispatch } = useMyContext();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch({ type: "addNewTodo", payload: value });
-    setValue("");
+    console.log(e.target);
+    console.log(value);
+    if (value) {
+      dispatch({ type: "addNewTodo", payload: value });
+      setError("");
+      setValue("");
+    } else {
+      setError("Please enter the value");
+    }
   };
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
+  const errorRender = error ? <p>{error}</p> : null;
   return (
     <FormStyles onSubmit={handleSubmit} name="todo">
       <div className="form-control">
@@ -27,6 +35,7 @@ const Form = () => {
           className="form-input"
         />
       </div>
+      {errorRender}
     </FormStyles>
   );
 };

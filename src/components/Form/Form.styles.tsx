@@ -28,6 +28,11 @@ const FormStyles = styled.form`
   .form-input::placeholder {
     color: ${(props) => props.theme.foot};
   }
+  & > p {
+    font-size: 1rem;
+    padding: 0.25rem 1.5rem 0;
+    color: red;
+  }
 
   @media screen and (min-width: 1440px) {
     .form-control {

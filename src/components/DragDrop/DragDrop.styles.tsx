@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DragDropStyles = styled.h2`
+const DragDropStyles = styled.h1`
   text-align: center;
   color: ${(props) => props.theme.circle};
   margin-top: 3rem;
