@@ -7,7 +7,6 @@ const NavbarStyles = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3.5rem;
   padding: 0 1.75rem;
   .nav-logo {
     text-transform: uppercase;

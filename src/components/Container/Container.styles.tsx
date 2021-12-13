@@ -3,8 +3,9 @@ import styled from "styled-components";
 const ContainerStyles = styled.div`
   max-width: 576px;
   margin: 0 auto;
+  padding: 3.5rem 0;
   @media screen and (min-width: 1440px) {
-    margin-top: 5rem;
+    padding: 5rem 0;
   }
 `;
 
