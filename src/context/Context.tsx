@@ -14,7 +14,7 @@ const getTodos = (items: [] | Todo[]) => {
   return items;
 };
 
-type Todo = {
+export type Todo = {
   id: number;
   title: string;
   completed: boolean;

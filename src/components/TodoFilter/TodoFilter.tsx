@@ -26,17 +26,14 @@ const TodoFilter = () => {
   const { dispatch } = useMyContext();
   return (
     <TodoFilterStyles>
-      {paras.map((p, index) => {
-        const { id, title, type } = p;
+      {paras.map(({ id, title, type }, index) => {
+        const pClass = index === active ? "active" : "";
+        const handleClick = () => {
+          dispatch({ type });
+          setActive(index);
+        };
         return (
-          <p
-            className={index === active ? "active" : ""}
-            onClick={() => {
-              dispatch({ type });
-              setActive(index);
-            }}
-            key={id}
-          >
+          <p className={pClass} onClick={handleClick} key={id}>
             {title}
           </p>
         );

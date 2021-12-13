@@ -1,5 +1,5 @@
 import React from "react";
-import { useMyContext } from "../../context/Context";
+import { Todo, useMyContext } from "../../context/Context";
 import TodoItem from "../TodoItem/TodoItem";
 import TodoListStyles from "./TodoList.styles";
 import { ReactSortable } from "react-sortablejs";
@@ -9,6 +9,9 @@ const TodoList = () => {
   const { dispatch } = useMyContext();
   const { state } = useMyContext();
   const { todos } = state;
+  const handleDragDrop = (e: Todo[]) => {
+    dispatch({ type: "setDrag", payload: e });
+  };
 
   return todos.length < 1 ? (
     <EmptyList />
@@ -17,13 +20,9 @@ const TodoList = () => {
       <ReactSortable
         animation={200}
         list={state.todos}
-        setList={(e) => {
-          dispatch({ type: "setDrag", payload: e });
-        }}
+        setList={handleDragDrop}
       >
-        {todos.map((todo) => {
-          const { id, ...rest } = todo;
-
+        {todos.map(({ id, ...rest }) => {
           return <TodoItem key={id} id={id} {...rest} />;
         })}
       </ReactSortable>

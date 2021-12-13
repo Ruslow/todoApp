@@ -12,25 +12,27 @@ const TodoItem = ({
   completed: boolean;
   id: number;
 }) => {
-  const cirlceActive = completed ? "circleActive" : "";
-  const checkActive = completed ? "" : "checkHide";
-  const pActive = completed ? "pActive" : "";
+  const active = {
+    cirlceActive: completed ? "circleActive" : "",
+    checkActive: completed ? "" : "checkHide",
+    pActive: completed ? "pActive" : "",
+  };
   const { dispatch } = useMyContext();
+  const handleComplete = () => {
+    dispatch({ type: "completeTodo", payload: id });
+  };
+  const handleClear = () => {
+    dispatch({ type: "clearItem", payload: id });
+  };
   return (
-    <TodoItemStyles
-      onClick={() => dispatch({ type: "completeTodo", payload: id })}
-    >
+    <TodoItemStyles onClick={handleComplete}>
       <div>
-        <button className={cirlceActive}>
-          <img src={check} alt="check" className={checkActive} />
+        <button className={active.cirlceActive}>
+          <img src={check} alt="check" className={active.checkActive} />
         </button>
-        <p className={pActive}>{title}</p>
+        <p className={active.pActive}>{title}</p>
       </div>
-      <img
-        onClick={() => dispatch({ type: "clearItem", payload: id })}
-        src={cross}
-        alt="cross"
-      />
+      <img onClick={handleClear} src={cross} alt="cross" />
     </TodoItemStyles>
   );
 };

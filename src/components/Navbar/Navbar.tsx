@@ -7,13 +7,14 @@ import { useMyContext } from "../../context/Context";
 export const Navbar = () => {
   const { dispatch, state } = useMyContext();
   const switchImages = state.theme === "dark" ? sun : moon;
+  const handleSwitch = () => {
+    dispatch({ type: "switchTheme" });
+  };
   return (
     <NavbarStyles>
       <h2 className="nav-logo">todo</h2>
       <img
-        onClick={() => {
-          dispatch({ type: "switchTheme" });
-        }}
+        onClick={handleSwitch}
         className="nav-switcher"
         src={switchImages}
         alt={"switch color theme."}

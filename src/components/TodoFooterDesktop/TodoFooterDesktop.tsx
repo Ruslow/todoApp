@@ -6,13 +6,14 @@ import TodoFooterDesktopStyles from "./TodoFooterDesktop.styles";
 const TodoFooterDesktop = () => {
   const { state, dispatch } = useMyContext();
   const { todos } = state;
+  const handleClearCompleted = () => {
+    dispatch({ type: "clearCompleted" });
+  };
   return (
     <TodoFooterDesktopStyles>
       <p>{todos.length} items left</p>
       <TodoFilter />
-      <p onClick={() => dispatch({ type: "clearCompleted" })}>
-        Clear Completed
-      </p>
+      <p onClick={handleClearCompleted}>Clear Completed</p>
     </TodoFooterDesktopStyles>
   );
 };

@@ -6,7 +6,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import Todo from "./components/Todo/Todo";
 import { useMyContext } from "./context/Context";
 
-const dark = {
+export const dark = {
   "main-bg": "hsl(235, 21%, 11%)",
   "box-bg": "hsl(234, 24%, 19%)",
   text: "hsl(234, 39%, 85%)",
@@ -19,7 +19,7 @@ const dark = {
   to: "hsl(280, 87%, 65%)",
 };
 
-const light = {
+export const light = {
   "box-bg": "hsl(0, 0%, 98%)",
   "main-bg": "hsl(236, 33%, 92%)",
   logo: "hsl(233, 11%, 84%)",
@@ -49,7 +49,7 @@ function App() {
 
 const AppStyles = styled.div`
   background-color: ${(props) => props.theme["main-bg"]};
-  height: 100vh;
+  min-height: 100vh;
   transition: all 0.5s;
 `;
 

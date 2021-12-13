@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 import { render, screen } from "../test-utils/testing-library-utils";
-
+import { dark } from "../App";
 test("changes color theme", () => {
   render(<App />);
 
@@ -12,7 +12,7 @@ test("changes color theme", () => {
   expect(bannerImg).toHaveStyle("background-image: url(bg-mobile-dark.jpg)");
 
   const background = screen.getByTestId("background");
-  expect(background).toHaveStyle("background-color: hsl(235,21%,11%)");
+  expect(background).toHaveStyle(`background-color: ${dark["main-bg"]}`);
 
   const todoBox = screen.getByTestId("todobox");
   expect(todoBox).toHaveStyle("background-color: hsl(234,24%,19%)");
