@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const EmptyListStyle = styled.div`
+  min-height: 295px;
   & > p {
     position: absolute;
     top: 50%;
